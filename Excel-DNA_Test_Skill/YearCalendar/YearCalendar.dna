@@ -1,0 +1,32 @@
+<DnaLibrary Name="YearCalendar" RuntimeVersion="v4.0">
+  <Project Language="C#">
+    <Reference Name="System.Drawing" />
+    <Reference Name="System.Windows.Forms" />
+    <Reference Name="Microsoft.Office.Interop.Excel" />
+    <SourceItem Path="Ribbon.cs" />
+  </Project>
+  <CustomUI>
+    <customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" onLoad="RibbonLoad">
+      <ribbon>
+        <tabs>
+          <tab id="CalendarTab" label="日历工具">
+            <group id="CalendarGroup" label="日历生成">
+              <comboBox id="YearSelector" label="选择年份"
+                        onChange="OnYearChanged"
+                        getItemCount="GetYearItemCount"
+                        getItemLabel="GetYearItemLabel"
+                        getText="GetYearText" />
+              <comboBox id="WeekStartSelector" label="星期开头"
+                        onChange="OnWeekStartChanged"
+                        getItemCount="GetWeekStartItemCount"
+                        getItemLabel="GetWeekStartItemLabel"
+                        getText="GetWeekStartText" />
+              <button id="GenerateButton" label="生成日历" size="large"
+                      onAction="GenerateCalendarClick" imageMso="HappyFace" />
+            </group>
+          </tab>
+        </tabs>
+      </ribbon>
+    </customUI>
+  </CustomUI>
+</DnaLibrary>
